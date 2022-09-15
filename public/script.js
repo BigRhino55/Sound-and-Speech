@@ -2,7 +2,6 @@
 // NOTE: The TODOs are listed in index.html
 
 window.onload = function () {
-  pageTheme();
   console.log('everything is loaded');
   axios
     .get(
