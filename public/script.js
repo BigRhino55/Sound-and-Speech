@@ -129,6 +129,8 @@ function onSubmit() {
   document.getElementById('logText').value = '';
 }
 
+
+
 let speech = new SpeechSynthesisUtterance();
 speech.lang = 'en';
 document.getElementById('TextSpeech').addEventListener('click', (e) => {
