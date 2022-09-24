@@ -36,6 +36,19 @@
         id="welcomeBanner"
       >
         <div class="dark:text-[8e8c89]">UVU LOG PORTAL</div>
+        <button
+          id="SoundButton"
+          class="
+            text-white
+            dark:text-[8e8c89]
+            float-right
+            rounded-lg
+            text-sm
+            p-2.5
+          "
+        >
+          Play Sound
+        </button>
       </div>
       <form onsubmit="return onSubmit();" class="p-5">
         <h1 class="font-bold text-xl pb-1">Course List</h1>
@@ -110,6 +123,34 @@
               "
             >
               Add Log
+            </button>
+            <button
+              type="SpeechText"
+              id="SpeechText"
+              class="
+                bg-[#1e482c]
+                text-white
+                border-solid border-2 border-green-900
+                rounded-md
+                py-1
+                px-2
+              "
+            >
+              Speech To Text
+            </button>
+            <button
+              type="TextSpeech"
+              id="TextSpeech"
+              class="
+                bg-[#1e482c]
+                text-white
+                border-solid border-2 border-green-900
+                rounded-md
+                py-1
+                px-2
+              "
+            >
+              Text To Speech
             </button>
           </div>
         </div>
