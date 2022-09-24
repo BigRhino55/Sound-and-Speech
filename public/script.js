@@ -5,7 +5,7 @@ window.onload = function () {
   console.log('everything is loaded');
   axios
     .get(
-      'https://json-server-yxfutr--3000.local.webcontainer.io/api/v1/courses'
+      'https://json-server-9zymne--3000.local.webcontainer.io/api/v1/courses'
     )
     .then((responce) => {
       let courses = responce.data;
@@ -42,7 +42,7 @@ idChecker.addEventListener('keyup', (e) => {
   if (e.target.value.length == 8) {
     axios
       .get(
-        'https://json-server-yxfutr--3000.local.webcontainer.io/api/v1/courses'
+        'https://json-server-9zymne--3000.local.webcontainer.io/api/v1/courses'
       )
       .then((response) => {
         if (response.status == 200 || response.status == 304) {
@@ -74,7 +74,7 @@ function loadLogs() {
   uvuDisplay.innerHTML = 'Student Logs for ' + studentId;
   uvuDisplay.className = 'font-bold text-xl';
   axios
-    .get('https://json-server-yxfutr--3000.local.webcontainer.io/api/v1/logs')
+    .get('https://json-server-9zymne--3000.local.webcontainer.io/api/v1/logs')
     .then((responce) => {
       for (let i = 0; i < responce.data.length; i++) {
         if (responce.data[i].uvuId == studentId) {
@@ -118,7 +118,7 @@ function onSubmit() {
 
   axios
     .post(
-      'https://json-server-yxfutr--3000.local.webcontainer.io/api/v1/logs',
+      'https://json-server-9zymne--3000.local.webcontainer.io/api/v1/logs',
       logObj
     )
     .catch((error) => {
@@ -129,9 +129,16 @@ function onSubmit() {
   document.getElementById('logText').value = '';
 }
 
-function play() {
-  var audio = new Audio(
-    'https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3'
-  );
-  audio.play();
-}
+let speech = new SpeechSynthesisUtterance();
+speech.lang = 'en';
+document.getElementById('TextSpeech').addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log;
+  speech.text = document.querySelector('textarea').value;
+  window.speechSynthesis.speak(speech);
+});
+
+let beat = new Audio('/shallnotpass.mp3');
+document.getElementById('SoundButton').addEventListener('click', (e) => {
+  beat.play();
+});
